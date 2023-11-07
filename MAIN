@@ -1,1 +1,21 @@
-CODE HERE
+import React, { useState } from 'react';
+import './App.css';
+
+export default function App() {
+  const [hash, setHash] = useState('');
+
+  const generateHash = () => {
+    const randomBinary = Math.random().toString(2).substr(2, 64);
+    setHash(randomBinary);
+  }
+
+  return (
+    <main>
+      <h1>Random Binary Hash Generator</h1>
+      <div className="calculator">
+        <input type="text" value={hash} readOnly />
+        <button onClick={generateHash}>Generate</button>
+      </div>
+    </main>
+  )
+}
